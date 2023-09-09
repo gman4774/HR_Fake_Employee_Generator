@@ -1,42 +1,47 @@
-# Python script for generating a report from CSV files
+# Employee Data Generator
 
-## Prerequisites
+This Python script generates employee data for a fictitious company. It utilizes the Faker library to create random employee profiles and pandas for data manipulation. The generated data includes employee details such as name, address, date of birth, contact information, and more. Additionally, it simulates employees leaving the company and logs their departure reasons.
+### Table of Contents
 
-* Python 3.x
+    Installation
+    Usage
+    Features
 
-## Required Libraries
 
-* sys
-* csv
-* argparse
+## Installation
+
+    Clone the repository or download the script.
+
+'''
+
+
+git clone https://github.com/your-username/employee-data-generator.git
+
+    Install the required Python libraries using pip.
+'''
+'''bash
+
+pip install faker pandas us timezonefinder
+'''
+
+    Prepare a CSV file named 'reason.csv' with removal reasons to be used in the script.
 
 ## Usage
 
-The script can be executed with the following command:
+    Run the Python script.
 
-python report.py -t <teammap_file_path> -p <productmaster_file_path> -s <sales_file_path> --team-report <teamreport_file_path> --product-report <productreport_file_path>
+'''bash
 
-## Command-line arguments
+python employee_data_generator.py
+'''
+    The script generates two CSV files:
+        current_employees.csv: Contains the data of current employees.
+        former_employees.csv: Contains the data of former employees, including their removal reasons and departure dates.
 
-The script accepts the following command-line arguments:
+## Features
 
-* -t: The file path for the team mapping CSV file.
-* -p: The file path for the product master CSV file.
-* -s: The file path for the sales CSV file.
-* --team-report: The file path for the team report CSV file to be generated.
-* --product-report: The file path for the product report CSV file to be generated.
-
-## Code Overview
-
-1. Parse command-line arguments using argparse.
-2. Verify all user input is CSV file format.
-3. Create empty dictionaries for teams and products.
-4. Read the team mapping CSV file and add the team names and initial gross revenue values to the teams dictionary.
-5. Read the product master CSV file and add the product names, prices, and lot sizes values to the products dictionary.
-6. Create an empty product report dictionary with product IDs as keys and product names, gross revenues, total units sold, and discount costs as values.
-7. Read the sales CSV file and update the teams and product report dictionaries with sales data.
-8. Sort the teams dictionary by gross revenue in descending order and create a list of tuples for the team report.
-9. Sort the product report dictionary by gross revenue in descending order and create a list of tuples for the product report.
-10. Write the team report to a CSV file.
-11. Write the product report to a CSV file.
-
+    Generates random employee profiles, including personal and contact details.
+    Simulates employees leaving the company and logs reasons for departure.
+    Supports generating employees in multiple states and time zones within the USA.
+## Use in Tableau dashboard
+This data was generated, cleaned and used to create an HR dashboard in Tableau which can be viewed here: https://public.tableau.com/app/profile/grzegorz.furmanski5996/viz/TurnoverDashboard_16928136278190/Dashboard1
